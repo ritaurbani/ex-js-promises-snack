@@ -23,18 +23,19 @@
 // .catch(error => console.log(error))
 
 //questa funzione ci ritornera una promise...
-
 const getPostTitle = (id) => {
-    return new Promise((resolve, reject) => { //operazione da fare? fetch
-        fetch(`https://dummyjson.com/posts/${id}`)
-            .then(response => response.json())
-            .then(obj => resolve(obj.title))//result(title)
-            .catch(reject)
+    return new Promise((resolve, reject) => { //passiamo executor - operazione da fare? fetch
+        fetch(`https://dummyjson.com/posts/${id}`) //interroga link
+            .then(response => response.json())//trasforma dato in oggetto
+            .then(obj => resolve(obj.title))//result(title) //prendo dato e sposto in una funzione> quindi scrivo direttamente 
+            .catch(reject)//gestisce errore
     })
 }
 
 getPostTitle(1)
-.then(title => console.log(title))
+.then(title => console.log(`il titolo e`,title))
 .catch(error => console.error(error))
+//nome dei parametri delle callback passate a catch sono arbitrari
+//funzione che promise esegue in caso di reject
 
 

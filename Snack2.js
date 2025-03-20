@@ -7,12 +7,14 @@
 
 const lanciaDado = () => {
     return new Promise((resolve, reject) => {
+        console.log("sto lanciando il dado...")
         setTimeout(() => {
-            const result = Math.floor(Math.random()*6) + 1
+            const result = Math.floor(Math.random()*6) + 1;//sposto intervsllo a 6
            if( Math.random() < 0.2) {
             reject("incastrato")
            } else {
             resolve(result)
+            // resolve("numero")
            }
 
         }, 3000)
@@ -21,4 +23,4 @@ const lanciaDado = () => {
 
 lanciaDado()
 .then(number => console.log(number))
-.catch(error => console.error(error))
+.catch(error => console.error(error))//qui posso mettere anche console.log
