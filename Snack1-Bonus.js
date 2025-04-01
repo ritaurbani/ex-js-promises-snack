@@ -13,19 +13,11 @@ const getPost = (id) => {
             .then(post => {//ottenuto il post leggo post.userId e uso questo id per fare altro fetch
                 fetch(`https://dummyjson.com/users/${post.userId}`)
                     .then(response => response.json())
-                    .then(user => {//user => resolve({...post, user})
-                        post.user = user //assegno dati autore a post.user - creo nuova proprieta -obj.proprieta = valore
-                           // const result = {
-                        //     ...post,
-                        //     user:user//user
-                        // }
-                        resolve(post)
-                    })//post ha ora anche 
+                    .then(user => resolve({...post, user}))
                     .catch(reject) //errore 
             })
             .catch(reject)
     })
-
 }
 
 getPost(1)

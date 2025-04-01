@@ -23,4 +23,4 @@ const lanciaDado = () => {
 
 lanciaDado()
 .then(number => console.log(number))
-.catch(error => console.error(error))//qui posso mettere anche console.log
+.catch(error => console.error(error))
